@@ -1,0 +1,50 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <p id="resultText"></p>
+    <div id="welcomeArea">
+        <p>
+            Welcome what's your name?
+        </p>
+        <p>Name</p>
+        <input id="name" type="text" value="">
+        <button onclick="saveName()" type="submit">Submit</button>
+    </div>
+    <div style="display:none;" id="answerArea">
+        <p id="savedName"></p>
+        <p>Number (Choose a number between 0 and 25)</p>
+        <input id="number" type="number" value="">
+        <br>
+        <br>
+        <button onclick="guessthenumber()" type="submit">Submit</button>
+    </div>
+    <script>
+        function saveName() {
+            var name = document.getElementById("name").value;
+
+            document.getElementById("savedName").innerHTML = "Hi " + name;
+            document.getElementById("welcomeArea").style.display = "none";
+            document.getElementById("answerArea").style.display = "block";
+        }
+
+        function guessthenumber() {
+            var name = document.getElementById("name").value;
+            var number = document.getElementById("number").value;
+            var randomNumber = 13;
+            //Alternative
+            //var randomNumber = Math.floor(Math.random() * (25 - 0 + 1)) + 0;
+
+            if (number == randomNumber) {
+                document.getElementById("resultText").innerHTML = name + " you guessed the right number!"
+            } else {
+                document.getElementById("resultText").innerHTML = name + " unfortunately that's the wrong number. Guess again"
+            }
+        }
+
+    </script>
+</body>
+
+</html>
